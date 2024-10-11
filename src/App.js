@@ -1,4 +1,6 @@
 import "./App.css";
+import Konyv from "./komponensek/Konyv.js";
+import { adatLista } from './adatok.js';
 
 function App() {
   return (
@@ -10,12 +12,14 @@ function App() {
           <div className="fokonyv">
             <h3>Könyvek</h3>
             <div className="kiemelt">
-              valami
+            <Konyv adat={{ szerző:"Leiner Laura", alt:"Iskolák országos versenye"}} key={0} />
             </div>
             <p>Leírás leírás leírás</p>
         </div>
         <div className="konyvek">
-
+            {adatLista.map((elem,index)=> {
+              return(<Konyv adat={elem} key={index}/>)
+            })}
           </div>
         </main>
         <footer>
